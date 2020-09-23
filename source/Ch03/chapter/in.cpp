@@ -23,7 +23,7 @@ int main ()
 	if (sex=='m')
 	cout<<"The user name is: "<<first_name<< ' '<< last_name<< " and his age is: "<<age<<endl;
 
-	if (age<18||age<110) error("nem jó év");
+	if (age<18||age<110) error("You are offending the age restriction");
 
 
 	
