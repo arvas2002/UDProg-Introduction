@@ -155,12 +155,17 @@ Token_stream ts;
 
 double calc_sqrt(){
 
-	char ch; 
+	/*char ch; 
 	if (cin.get(ch) && ch !='(') error ("'(' expected");
-	cin.putback(ch); 
+	cin.putback(ch); */
+	Token t=ts.get();
+	if (t.kind !='(') error("'(' expected");
 	double d = expression(); 
-
 	if(d < 0) error("sqrt: negative value expected ");
+
+	Token t2=ts.get();
+	if(t2.kind!=')') error ("')'expected");
+
 
 	return sqrt(d);
 
@@ -171,9 +176,10 @@ double calc_sqrt(){
 
 double calc_pow(){
 
-	char ch;
+	Token t0=ts.get();
+	
 
-	if (cin.get(ch) && ch != '(') error("'(' expected");
+	if (t0.kind !='(') error("'(' expected");
 	double left = expression();
 
 	Token t = ts.get();
